@@ -3,15 +3,15 @@ min_n_elections: 2
 with_bbd_output_path: ./with_bbd.tsv
 without_bbd_output_path: ./without_bbd.tsv
 nrows: 
+  - 50
+  - 100
+  - 150
+  - 200
+  - 250
+  - 300
+  - 350
+  - 450
   - 500
-  - 1_000
-  - 1_500
-  - 2_000
-  - 2_500
-  - 3_000
-  - 3_500
-  - 4_500
-  - 5_000
 p_voted_before_bbd:
   - 0.5
   - 0.5
