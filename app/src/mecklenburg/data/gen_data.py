@@ -28,7 +28,7 @@ def main():
 
     with_bbd_output_path = Path(cfg["with_bbd_output_path"])
     without_bbd_output_path = Path(cfg["without_bbd_output_path"])
-    headers = "n_vote\tn_no_vote\n"
+    headers = "alpha\tbeta\n"
 
     with_bbd = []
     without_bbd = []
