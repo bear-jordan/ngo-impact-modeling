@@ -2,16 +2,16 @@ from pathlib import Path
 from yaml import safe_load
 
 from numpy.random import rand, randint
-from icecream import ic
+
 
 CFG_PATH = "./meklenburg/config/gen-data.yaml"
 
 
 def gen_person(p, max_n_elections, min_n_elections) -> str:
-    n_elections = ic(randint(low=min_n_elections, high=max_n_elections))
-    did_vote = ic([result < p for result in rand(n_elections)])
-    n_vote = ic(sum(did_vote))
-    n_no_vote = ic(n_elections - n_vote)
+    n_elections = randint(low=min_n_elections, high=max_n_elections)
+    did_vote = [result < p for result in rand(n_elections)]
+    n_vote = sum(did_vote)
+    n_no_vote = n_elections - n_vote
 
     return "\t".join([str(n_vote), str(n_no_vote)])
 
@@ -19,7 +19,7 @@ def gen_person(p, max_n_elections, min_n_elections) -> str:
 def main():
     with Path(CFG_PATH).open("r") as file:
         cfg = safe_load(file)
-    ic(cfg)
+    cfg
     nrows = cfg["nrows"]
     p_voted_before_bbd = cfg["p_voted_before_bbd"]
     p_voted_after_bbd = cfg["p_voted_after_bbd"]
