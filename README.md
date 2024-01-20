@@ -1,1 +1,1 @@
-# bbd-meklenburg
+# Mecklenburg Democrats and Blue Bonnet Data
