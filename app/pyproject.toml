@@ -3,18 +3,23 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "meklenburg"
+name = "mecklenburg"
 version = "0.0.1"
 authors = [
   {name = "Bear Jordan", email = "bearjordan@gmail.com"},
 ]
-description = "Statistical Analysis for the Meklenburg Democratic Party"
+description = "Statistical Analysis for the Mecklenburg Democratic Party"
 
 [project.scripts]
-gen_data = "meklenburg.data.gen_data:main"
+main = "mecklenburg.main:main"
+gen_data = "mecklenburg.data.gen_data:main"
+gen_fit = "mecklenburg.model.gen_fit:main"
 
 [project.urls]
-"Homepage" = "https://github.com/bear-jordan/bbd-meklenburg"
+"Homepage" = "https://github.com/bear-jordan/bbd-mecklenburg"
 
 [tool.hatch.data]
-include = ["meklenburg/config/*.yaml"]
+include = [
+  "mecklenburg/config/gen_data.yaml",
+  "mecklenburg/model/model.stan",
+]
