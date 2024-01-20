@@ -14,4 +14,6 @@ COPY src/ .
 COPY pyproject.toml .
 RUN pip install .
 
+COPY .env .
+
 CMD ["main"]
