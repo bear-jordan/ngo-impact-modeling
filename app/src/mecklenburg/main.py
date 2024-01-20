@@ -1,5 +1,6 @@
 from pathlib import Path
 from yaml import safe_load
+from json import dump
 
 from icecream import ic
 
@@ -26,6 +27,11 @@ def main():
             })
 
     ic(results)
+
+    with Path("./results.json").open("w") as file:
+        dump(results, file)
+
+    ic()
 
 
 if __name__ == "__main__":
