@@ -4,7 +4,7 @@ from yaml import safe_load
 from numpy.random import rand, randint
 
 
-CFG_PATH = "./meklenburg/config/gen-data.yaml"
+CFG_PATH = "./mecklenburg/config/gen-data.yaml"
 
 
 def gen_person(p, max_n_elections, min_n_elections) -> str:
