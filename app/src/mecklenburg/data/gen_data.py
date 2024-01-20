@@ -1,10 +1,6 @@
 from pathlib import Path
-from yaml import safe_load
 
 from numpy.random import rand, randint
-
-
-CFG_PATH = "./mecklenburg/config/gen-data.yaml"
 
 
 def gen_person(p, max_n_elections, min_n_elections) -> str:
@@ -16,13 +12,7 @@ def gen_person(p, max_n_elections, min_n_elections) -> str:
     return "\t".join([str(n_vote), str(n_no_vote)])
 
 
-def main():
-    with Path(CFG_PATH).open("r") as file:
-        cfg = safe_load(file)
-    cfg
-    nrows = cfg["nrows"]
-    p_voted_before_bbd = cfg["p_voted_before_bbd"]
-    p_voted_after_bbd = cfg["p_voted_after_bbd"]
+def main(cfg, nrows, p_voted_before_bbd, p_voted_after_bbd):
     max_n_elections = cfg["max_n_elections"]
     min_n_elections = cfg["min_n_elections"]
 

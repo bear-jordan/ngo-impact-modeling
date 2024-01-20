@@ -41,7 +41,14 @@ def analyze_data(model, data):
     ) / n_row_total
     ic(lower_quantile, upper_quantile)
 
-    return y_sim_norm
+    return (
+        y_sim_norm,
+        {
+            "prob_voting": prob_voting,
+            "lower_quantile": lower_quantile,
+            "upper_quantile": upper_quantile,
+        }
+    )
 
 
 def main():
@@ -49,12 +56,18 @@ def main():
     model = CmdStanModel(stan_file=stan_file)
     with_bbd, without_bbd = load_data()
 
-    with_bbd_ppd = analyze_data(model, process_data(with_bbd))
-    without_bbd_ppd = analyze_data(model, process_data(without_bbd))
+    with_bbd_ppd, with_bbd_results = analyze_data(model, process_data(with_bbd))
+    without_bbd_ppd, without_bbd_results = analyze_data(model, process_data(without_bbd))
 
     difference = with_bbd_ppd - without_bbd_ppd
-    prob_with_bbd_greater = np.mean(difference > 0)
-    ic(prob_with_bbd_greater)
+    prob_bbd_impact = np.mean(difference > 0)
+    ic(prob_bbd_impact)
+
+    return {
+        "with_bbd": with_bbd_results,
+        "without_bbd": without_bbd_results,
+        "prob_bbd_impact": prob_bbd_impact,
+    }
 
 
 if __name__ == "__main__":

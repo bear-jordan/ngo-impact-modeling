@@ -2,6 +2,35 @@ max_n_elections: 5
 min_n_elections: 2
 with_bbd_output_path: ./with_bbd.tsv
 without_bbd_output_path: ./without_bbd.tsv
-nrows: 10_000
-p_voted_before_bbd: 0.5
-p_voted_after_bbd: 0.53
+nrows: 
+  - 500
+  - 1_000
+  - 1_500
+  - 2_000
+  - 2_500
+  - 3_000
+  - 3_500
+  - 4_500
+  - 5_000
+p_voted_before_bbd:
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+p_voted_after_bbd:
+  - 0.1
+  - 0.2
+  - 0.3
+  - 0.4
+  - 0.5
+  - 0.6
+  - 0.7
+  - 0.8
+  - 0.9
+  - 1.0
