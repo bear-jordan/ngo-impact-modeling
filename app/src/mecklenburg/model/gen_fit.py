@@ -1,7 +1,9 @@
 from pathlib import Path
 
+import arviz as az
 from cmdstanpy import CmdStanModel
 from icecream import ic
+import matplotlib.pyplot as plt
 
 
 def main():
@@ -15,6 +17,9 @@ def main():
     }
     fit = model.sample(data)
     ic(fit.summary())
+    idata = az.from_cmdstanpy(fit)
+    az.plot_posterior(idata)
+    plt.savefig("./posterior.png")
 
 
 if __name__ == "__main__":
