@@ -15,14 +15,20 @@ def main():
     ic()
     with Path(CFG_PATH).open("r") as file:
         cfg = safe_load(file)
-    params = zip(cfg["p_voted_before_bbd"], cfg["p_voted_after_bbd"])
     results = []
     for nrow in cfg["nrows"]:
+        params = zip(cfg["p_voted_before_bbd"], cfg["p_voted_after_bbd"])
         for p_voted_before_bbd, p_voted_after_bbd in params:
+            results.append({
+                "nrow": nrow,
+                "p_voted_before_bbd": p_voted_before_bbd,
+                "p_voted_after_bbd": p_voted_after_bbd,
+            })
             gen_data.main(cfg, nrow, p_voted_before_bbd, p_voted_after_bbd)
             run_results = gen_fit.main()
             results.append({
                 "effect_size": p_voted_after_bbd - p_voted_before_bbd,
+                "nrow": nrow,
                 **run_results
             })
 
