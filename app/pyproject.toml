@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "meklenburg"
+version = "0.0.1"
+authors = [
+  {name = "Bear Jordan", email = "bearjordan@gmail.com"},
+]
+description = "Statistical Analysis for the Meklenburg Democratic Party"
+
+[project.scripts]
+gen_data = "meklenburg.data.gen_data:main"
+
+[project.urls]
+"Homepage" = "https://github.com/bear-jordan/bbd-meklenburg"
+
+[tool.hatch.data]
+include = ["meklenburg/config/*.yaml"]

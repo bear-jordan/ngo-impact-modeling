@@ -4,7 +4,7 @@ from yaml import safe_load
 from numpy.random import rand, randint
 from icecream import ic
 
-CFG_PATH = "./config/gen-data.yaml"
+CFG_PATH = "./meklenburg/config/gen-data.yaml"
 
 
 def gen_person(p, max_n_elections, min_n_elections) -> str:
@@ -16,7 +16,9 @@ def gen_person(p, max_n_elections, min_n_elections) -> str:
     return "\t".join([str(n_vote), str(n_no_vote)])
 
 
-def main(cfg):
+def main():
+    with Path(CFG_PATH).open("r") as file:
+        cfg = safe_load(file)
     ic(cfg)
     nrows = cfg["nrows"]
     p_voted_before_bbd = cfg["p_voted_before_bbd"]
@@ -48,6 +50,4 @@ def main(cfg):
 
 
 if __name__ == "__main__":
-    with Path(CFG_PATH).open("r") as file:
-        cfg = safe_load(file)
-    main(cfg)
+    main()

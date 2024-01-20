@@ -7,4 +7,7 @@ RUN pip install -r requirements.txt
 
 COPY src/ .
 
-CMD ["python", "./data/gen_data.py"]
+COPY pyproject.toml .
+RUN pip install .
+
+CMD ["gen_data"]
