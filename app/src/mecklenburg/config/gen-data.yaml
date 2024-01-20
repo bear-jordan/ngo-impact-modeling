@@ -4,6 +4,12 @@ with_bbd_output_path: ./with_bbd.tsv
 without_bbd_output_path: ./without_bbd.tsv
 nrows: 
   - 100
+  - 1_000
+  - 5_000
+  - 10_000
+  - 20_000
+  - 50_000
+  - 100_000
 p_voted_before_bbd:
   - 0.5
   - 0.5
@@ -14,7 +20,10 @@ p_voted_before_bbd:
   - 0.5
   - 0.5
   - 0.5
+  - 0.5
+  - 0.5
 p_voted_after_bbd:
+  - 0.1
   - 0.3
   - 0.4
   - 0.45
@@ -24,3 +33,4 @@ p_voted_after_bbd:
   - 0.55
   - 0.6
   - 0.7
+  - 0.9
