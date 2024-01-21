@@ -12,8 +12,6 @@ description = "Statistical Analysis for the Mecklenburg Democratic Party"
 
 [project.scripts]
 main = "mecklenburg.main:main"
-gen_data = "mecklenburg.data.gen_data:main"
-gen_fit = "mecklenburg.model.gen_fit:main"
 
 [project.urls]
 "Homepage" = "https://github.com/bear-jordan/bbd-mecklenburg"

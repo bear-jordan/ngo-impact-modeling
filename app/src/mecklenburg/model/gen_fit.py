@@ -25,49 +25,12 @@ def process_data(raw_data):
     }
 
 
-def analyze_data(model, data):
-    fit = model.sample(data)
-    ic(fit.summary())
-
-    y_sim = fit.stan_variable("y_sim")
-    n_row_total = y_sim.shape[0]
-    y_sim_norm = y_sim.sum(axis=0) / n_row_total
-
-    prob_voting = np.median(y_sim_norm)
-    ic(prob_voting)
-
-    lower_quantile, upper_quantile = np.quantile(
-        y_sim.sum(axis=0), [0.05, 0.95]
-    ) / n_row_total
-    ic(lower_quantile, upper_quantile)
-
-    return (
-        y_sim_norm,
-        {
-            "prob_voting": prob_voting,
-            "lower_quantile": lower_quantile,
-            "upper_quantile": upper_quantile,
-        }
-    )
-
-
-def main():
+def main(raw_data):
     stan_file = Path("./mecklenburg/model/model.stan")
     model = CmdStanModel(stan_file=stan_file)
-    with_bbd, without_bbd = load_data()
+    data = process_data(raw_data)
 
-    with_bbd_ppd, with_bbd_results = analyze_data(model, process_data(with_bbd))
-    without_bbd_ppd, without_bbd_results = analyze_data(model, process_data(without_bbd))
-
-    difference = with_bbd_ppd - without_bbd_ppd
-    prob_bbd_impact = np.mean(difference > 0)
-    ic(prob_bbd_impact)
-
-    return {
-        "with_bbd": with_bbd_results,
-        "without_bbd": without_bbd_results,
-        "prob_bbd_impact": prob_bbd_impact,
-    }
+    return model.sample(data)
 
 
 if __name__ == "__main__":

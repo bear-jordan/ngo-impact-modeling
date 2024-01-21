@@ -23,9 +23,7 @@ def main(cfg, nrows, p_voted_before_bbd, p_voted_after_bbd):
     with_bbd = []
     without_bbd = []
     for _ in range(nrows):
-        with_bbd.append(
-            gen_person(p_voted_after_bbd, max_n_elections, min_n_elections)
-        )
+        with_bbd.append(gen_person(p_voted_after_bbd, max_n_elections, min_n_elections))
         without_bbd.append(
             gen_person(p_voted_before_bbd, max_n_elections, min_n_elections)
         )
