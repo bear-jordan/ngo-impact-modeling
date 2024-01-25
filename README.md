@@ -1,4 +1,4 @@
-# Mecklenburg Voter Analysis: Are NGOs Able to Increase Voter Turnout?
+# Voter Analysis: Are NGOs Able to Increase Voter Turnout?
 
 ## Table of Contents
 
