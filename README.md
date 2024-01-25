@@ -12,8 +12,8 @@
 ## Features
 
 - Bayesian inference
-- Automated building and deployment of container to AWS
-- Automated logging of model results
+- Automated container deployment to AWS Elastic Container Registry
+- Automated logging of model results to an AWS S3 Bucket
 
 ## Overview
 
