@@ -36,7 +36,6 @@ Since this project was simply a proof of concept, two key considerations were ma
 
 ## Results
 
-### Modeling
 To test the model, the synthetic data was generated assuming the probability of voting before interacting with the NGO at 30% --- the model estimated this quantity at 26%. Similarly, the probability of voting after interacting with the NGO was set at 70% and estimated at 75%. This suggests an increase voters are 50% more likely to vote after interacting with the charity with an 80% probability of the effects validity.
 
 ## Challenges and Reflections
