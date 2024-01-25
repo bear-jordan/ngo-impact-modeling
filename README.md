@@ -1,4 +1,4 @@
-# Voter Analysis: Are NGOs Able to Increase Voter Turnout?
+# Are NGOs Able to Increase Voter Turnout?
 
 ## Table of Contents
 
