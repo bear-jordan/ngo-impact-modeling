@@ -74,6 +74,7 @@ The image is run on AWS Fargate and the results are uploaded to an S3 bucket.
 ![Fargate Results](./images/ecs.png)
 ![S3 Results](./images/s3.png)
 
+The modeling results are stored for later use.
 
 ```json
 {
@@ -95,7 +96,7 @@ The image is run on AWS Fargate and the results are uploaded to an S3 bucket.
 
 ## Challenges and Reflections
 
-I was approached to help out with this project as a potential consulting job, so I spent the weekend developing a quick prototype to try out some new ideas. Specifically, I have been studying AWS in preparation for my CCP exam. I wanted to use some of the services I had been reading about, so I thought building a pipeline from Github to AWS would be fun. It was surprisingly easy, and I was happy with the work overall. Well, until I got an email telling my AWS expenses were over budget. Turns out, Elastic Container Registry charges for storage. Lesson learned.
+I was approached to help out with this project as a potential consulting job, so I spent the weekend developing a quick prototype to try out some new ideas. Specifically, I have been studying AWS in preparation for my CCP exam. I wanted to use some of the services I had been reading about, so I thought building a pipeline from Github to AWS would be fun. It was surprisingly easy, and I was happy with the work overall. Well, until I got an email telling my AWS expenses were over budget. Turns out, Elastic Container Registry charges for storage. Time to read up on AWS Budgets :)
 
 ## Contact
 
