@@ -7,7 +7,7 @@ RUN pip install cmdstanpy==1.2.0
 RUN install_cmdstan
 
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --no-cache-dir
 
 COPY src/ .
 

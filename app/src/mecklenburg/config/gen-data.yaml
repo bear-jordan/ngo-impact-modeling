@@ -1,5 +1,5 @@
 max_n_elections: 5
 min_n_elections: 1
-nrows: 1_000
-p_voted_before_bbd: 0.3
-p_voted_after_bbd: 0.7
+nrows: 100
+p_voted_before_ngo: 0.3
+p_voted_after_ngo: 0.7

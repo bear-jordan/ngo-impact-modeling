@@ -21,3 +21,6 @@ include = [
   "mecklenburg/config/gen_data.yaml",
   "mecklenburg/model/model.stan",
 ]
+
+[pytest]
+testpaths = ["./src/test"]

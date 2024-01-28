@@ -1,9 +1,9 @@
 from pathlib import Path
 
 from cmdstanpy import CmdStanModel
-from icecream import ic
-import numpy as np
-import pandas as pd
+
+
+MODEL_PATH = Path("./mecklenburg/model/model.stan")
 
 
 def process_data(raw_data):
@@ -15,12 +15,8 @@ def process_data(raw_data):
 
 
 def main(raw_data):
-    stan_file = Path("./mecklenburg/model/model.stan")
+    stan_file = MODEL_PATH
     model = CmdStanModel(stan_file=stan_file)
     data = process_data(raw_data)
 
     return model.sample(data)
-
-
-if __name__ == "__main__":
-    main()

@@ -11,20 +11,16 @@ def gen_person(p, max_n_elections, min_n_elections):
     return {"alpha": n_vote, "beta": n_no_vote}
 
 
-def main(cfg, nrows, p_voted_before_bbd, p_voted_after_bbd):
+def main(cfg, nrows, p_voted_before_ngo, p_voted_after_ngo):
     max_n_elections = cfg["max_n_elections"]
     min_n_elections = cfg["min_n_elections"]
 
-    with_bbd = []
-    without_bbd = []
+    with_ngo = []
+    without_ngo = []
     for _ in range(nrows):
-        with_bbd.append(gen_person(p_voted_after_bbd, max_n_elections, min_n_elections))
-        without_bbd.append(
-            gen_person(p_voted_before_bbd, max_n_elections, min_n_elections)
+        with_ngo.append(gen_person(p_voted_after_ngo, max_n_elections, min_n_elections))
+        without_ngo.append(
+            gen_person(p_voted_before_ngo, max_n_elections, min_n_elections)
         )
 
-    return pd.DataFrame(with_bbd), pd.DataFrame(without_bbd)
-
-
-if __name__ == "__main__":
-    main()
+    return pd.DataFrame(with_ngo), pd.DataFrame(without_ngo)
