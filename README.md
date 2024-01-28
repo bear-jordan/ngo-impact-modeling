@@ -62,6 +62,37 @@ docker-compose -f docker-compose.test.yaml up
 
 To test the model, the synthetic data was generated assuming the probability of voting before interacting with the NGO at 30% --- the model estimated this quantity at 26%. Similarly, the probability of voting after interacting with the NGO was set at 70% and estimated at 75%. This suggests an increase voters are 50% more likely to vote after interacting with the charity with an 80% probability of the effects validity.
 
+## Pipeline
+
+Github actions run unit tests then build the image and upload it to AWS Elastic Container Registry if sucessful.
+
+![Github Actions Results](./images/github.png)
+![ECR Results](./images/ecr.png)
+
+The image is run on AWS Fargate and the results are uploaded to an S3 bucket.
+
+![Fargate Results](./images/ecs.png)
+![S3 Results](./images/s3.png)
+
+
+```json
+{
+    "effect_size": 0.39999999999999997,
+    "nrow": 100,
+    "with_ngo": {
+        "prob_voting": 0.745375,
+        "lower_quantile": 0.0084875,
+        "upper_quantile": 0.9975125
+    },
+    "without_ngo": {
+        "prob_voting": 0.255125,
+        "lower_quantile": 0.00225,
+        "upper_quantile": 0.99125
+    },
+    "p_ngo_impact": 0.82
+}
+```
+
 ## Challenges and Reflections
 
 I was approached to help out with this project as a potential consulting job, so I spent the weekend developing a quick prototype to try out some new ideas. Specifically, I have been studying AWS in preparation for my CCP exam. I wanted to use some of the services I had been reading about, so I thought building a pipeline from Github to AWS would be fun. It was surprisingly easy, and I was happy with the work overall. Well, until I got an email telling my AWS expenses were over budget. Turns out, Elastic Container Registry charges for storage. Lesson learned.
