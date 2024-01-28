@@ -6,17 +6,6 @@ import numpy as np
 import pandas as pd
 
 
-WITH_BBD_PATH = "./with_bbd.tsv"
-WITHOUT_BBD_PATH = "./without_bbd.tsv"
-
-
-def load_data():
-    with_bbd = pd.read_table(Path(WITH_BBD_PATH))
-    without_bbd = pd.read_table(Path(WITHOUT_BBD_PATH))
-
-    return (with_bbd, without_bbd)
-
-
 def process_data(raw_data):
     return {
         "N": raw_data.shape[0],
