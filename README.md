@@ -7,6 +7,7 @@
 - [Setup](#setup)
 - [Built With](#built-with)
 - [Results](#results)
+- [Pipeline](#pipeline)
 - [Challenges](#challenges-and-reflections)
 - [Contact](#contact)
 
