@@ -2,7 +2,7 @@ import pandas as pd
 from numpy.random import rand, randint
 
 
-def gen_person(p, max_n_elections, min_n_elections) -> str:
+def gen_person(p, max_n_elections, min_n_elections):
     n_elections = randint(low=min_n_elections, high=max_n_elections)
     did_vote = [result < p for result in rand(n_elections)]
     n_vote = sum(did_vote)
