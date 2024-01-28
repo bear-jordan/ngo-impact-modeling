@@ -1,11 +1,11 @@
-from json import dumps
+# from json import dumps (disabled for demo)
 
 from icecream import ic
 
 from mecklenburg.data import gen_data
 from mecklenburg.model import gen_fit
 from mecklenburg.aws.setup import setup
-from mecklenburg.aws.upload_data import upload_data
+# from mecklenburg.aws.upload_data import upload_data (disabled for demo)
 from mecklenburg.analysis import analyze_fit, analyze_differences
 
 
@@ -41,14 +41,16 @@ def synthetic_modeling(aws_cfg, cfg):
         "without_ngo": without_ngo_results,
         "p_ngo_impact": analyze_differences(with_ngo_ppd, without_ngo_ppd),
     }
-    file_name = f"results/{nrow}_{p_voted_before_ngo}_{p_voted_after_ngo}.json"
-
-    # Upload to S3
     ic(results)
+
+    # Upload to S3 (disabled for demo)
+    """
+    file_name = f"results/{nrow}_{p_voted_before_ngo}_{p_voted_after_ngo}.json"
     upload_data(
         s3_client,
         dumps(results),
         bucket,
         file_name,
     )
+    """
     ic("Modeling Complete")
