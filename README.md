@@ -4,6 +4,7 @@
 
 - [Features](#features)
 - [Overview](#overview)
+- [Setup](#setup)
 - [Built With](#built-with)
 - [Results](#results)
 - [Challenges](#challenges-and-reflections)
@@ -21,6 +22,28 @@ This project was a proposal for a non-profit organization that wanted to measure
 
 Since this project was simply a proof of concept, two key considerations were made. First, synthetic data was used to demonstrate the validity of the techniques and for rapid prototyping. Second, the code is containerized so that it may run on any hardware as scaled as necessary. The current implementation leverages Github Actions to build the container and send to AWS to be run with the Fargate service where results are saved to an S3 bucket.
 
+## Setup
+
+To run the basic analysis
+
+1. Install Docker if needed
+2. Clone the repository
+3. Navigate to the root directory of the project and run
+
+```bash
+docker-compose up
+```
+
+To run the unit tests
+
+1. Install Docker if needed
+2. Clone the repository
+3. Navigate to the root directory of the project and run
+
+```bash
+docker-compose -f docker-compose.test.yaml up
+```
+
 ## Built With
 
 - **AWS**: Handle compute at scale with a serverless container setup
@@ -32,6 +55,7 @@ Since this project was simply a proof of concept, two key considerations were ma
 - **Python**: Handle I/O and orchestration
   - Cmdstanpy
   - Numpy
+  - Pytest
 - **Stan**: Perform Hamiltonian Monte Carlo
 
 ## Results

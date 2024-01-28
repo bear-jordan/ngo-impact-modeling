@@ -27,9 +27,9 @@ def analyze_fit(fit):
     )
 
 
-def analyze_differences(with_bbd_ppd, without_bbd_ppd):
-    difference = with_bbd_ppd - without_bbd_ppd
-    p_bbd_impact = np.mean(difference > 0)
-    ic(p_bbd_impact)
+def analyze_differences(with_ngo_ppd, without_ngo_ppd):
+    difference = with_ngo_ppd - without_ngo_ppd
+    p_ngo_impact = np.mean(difference > 0)
+    ic(p_ngo_impact)
 
-    return p_bbd_impact
+    return p_ngo_impact

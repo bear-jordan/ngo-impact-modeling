@@ -1,5 +1,3 @@
-from json import dumps
-
 from icecream import ic
 
 from mecklenburg.data import gen_data
@@ -21,27 +19,27 @@ def synthetic_modeling(aws_cfg, cfg):
     s3_client = setup()
     bucket = aws_cfg["bucket"]
     nrow = cfg["nrows"]
-    p_voted_before_bbd = cfg["p_voted_before_bbd"]
-    p_voted_after_bbd = cfg["p_voted_after_bbd"]
+    p_voted_before_ngo = cfg["p_voted_before_ngo"]
+    p_voted_after_ngo = cfg["p_voted_after_ngo"]
 
     # Create Synthetic Data
-    with_bbd_raw_data, without_bbd_raw_data = gen_data.main(
-        cfg, nrow, p_voted_before_bbd, p_voted_after_bbd
+    with_ngo_raw_data, without_ngo_raw_data = gen_data.main(
+        cfg, nrow, p_voted_before_ngo, p_voted_after_ngo
     )
 
     # Analyze Data
-    with_bbd_ppd, with_bbd_results = fit_and_analyze(with_bbd_raw_data)
-    without_bbd_ppd, without_bbd_results = fit_and_analyze(without_bbd_raw_data)
+    with_ngo_ppd, with_ngo_results = fit_and_analyze(with_ngo_raw_data)
+    without_ngo_ppd, without_ngo_results = fit_and_analyze(without_ngo_raw_data)
 
     # Format Results
     results = {
-        "effect_size": p_voted_after_bbd - p_voted_before_bbd,
+        "effect_size": p_voted_after_ngo - p_voted_before_ngo,
         "nrow": nrow,
-        "with_bbd": with_bbd_results,
-        "without_bbd": without_bbd_results,
-        "p_bbd_impact": analyze_differences(with_bbd_ppd, without_bbd_ppd),
+        "with_ngo": with_ngo_results,
+        "without_ngo": without_ngo_results,
+        "p_ngo_impact": analyze_differences(with_ngo_ppd, without_ngo_ppd),
     }
-    file_name = f"results/{nrow}_{p_voted_before_bbd}_{p_voted_after_bbd}.json"
+    file_name = f"results/{nrow}_{p_voted_before_ngo}_{p_voted_after_ngo}.json"
 
     # Upload to S3 - Removed for demo
     ic(results)
