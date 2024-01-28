@@ -1,3 +1,5 @@
+from json import dumps
+
 from icecream import ic
 
 from mecklenburg.data import gen_data
@@ -41,14 +43,12 @@ def synthetic_modeling(aws_cfg, cfg):
     }
     file_name = f"results/{nrow}_{p_voted_before_ngo}_{p_voted_after_ngo}.json"
 
-    # Upload to S3 - Removed for demo
+    # Upload to S3
     ic(results)
-    """ 
     upload_data(
         s3_client,
         dumps(results),
         bucket,
         file_name,
     )
-    """
     ic("Modeling Complete")
