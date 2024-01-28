@@ -18,9 +18,9 @@
 
 ## Overview
 
-This project was a proposal for a non-profit organization that wanted to measure how effective they were at encouraging people to vote. Given data on the voters history before and after interacting with the organization, Bayesian inference was use to measure how much more likely an individual was to vote after interacting with the organization. To quantify time effects, a parallel analysis on a random sample of people may be performed. The relative trends between the random sample and the people who interacted with the NGO gives insight to how effective their methods are.
+This project was a proposal for a non-profit organization that wanted to measure how effective they were at encouraging people to vote. Given data on the voters history before and after interacting with the organization, Bayesian inference was use to measure how much more likely an individual was to vote after interaction. To quantify time effects, a parallel analysis on a random sample of people may be performed. The relative trends between the random sample and the people who interacted with the NGO gives insight to how effective their methods are.
 
-Since this project was simply a proof of concept, two key considerations were made. First, synthetic data was used to demonstrate the validity of the techniques and for rapid prototyping. Second, the code is containerized so that it may run on any hardware as scaled as necessary. The current implementation leverages Github Actions to build the container and send to AWS to be run with the Fargate service where results are saved to an S3 bucket.
+Since this project was a proof of concept, two key considerations were made. First, synthetic data was used to demonstrate the validity of the techniques and for rapid prototyping. Second, the code is containerized so that it may run on any hardware or be as scaled as necessary. The current implementation leverages Github Actions to build the container and send to AWS where it is run with in Fargate. The results are then saved to an S3 bucket.
 
 ## Setup
 
