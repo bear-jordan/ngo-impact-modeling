@@ -83,13 +83,13 @@ The modeling results are stored for later use.
     "nrow": 100,
     "with_ngo": {
         "prob_voting": 0.745375,
-        "lower_quantile": 0.0084875,
-        "upper_quantile": 0.9975125
+        "lower_05_quantile": 0.0084875,
+        "upper_95_quantile": 0.9975125
     },
     "without_ngo": {
         "prob_voting": 0.255125,
-        "lower_quantile": 0.00225,
-        "upper_quantile": 0.99125
+        "lower_05_quantile": 0.00225,
+        "upper_95_quantile": 0.99125
     },
     "p_ngo_impact": 0.82
 }
